@@ -24,9 +24,13 @@ antspymm/
 │   ├── version_utils.py     # 1 version function
 │   ├── filesystem_utils.py  # 3 filesystem functions (Phase 2)
 │   └── conversion_utils.py  # 5 conversion functions (Phase 3)
+├── image_io_module/
+│   ├── __init__.py          # Re-exports all I/O functions
+│   ├── image_io.py          # 3 image I/O functions (Phase 4)
+│   └── dwi_io.py            # 1 DWI I/O function (Phase 4)
 ```
 
-### 4. Functions Successfully Extracted (19 total)
+### 4. Functions Successfully Extracted (23 total)
 
 #### Phase 1 (11 functions):
 - String utilities: 5 functions
@@ -46,10 +50,16 @@ antspymm/
 - `dict_to_dataframe()` - Convert dictionary to DataFrame
 - `to_nibabel()` - Convert ANTs image to nibabel
 
+#### Phase 4 (4 functions):
+- `mm_read()` - Read medical images with standardization
+- `mm_read_to_3d()` - Read image and convert to 3D
+- `image_write_with_thumbnail()` - Write image with thumbnail
+- `write_bvals_bvecs()` - Write DWI gradient files
+
 All functions have been:
 - Extracted with exact original code
 - Tested to ensure identical behavior
-- Made available through utils module
+- Made available through their respective modules
 
 ## Next Steps to Complete Refactoring
 

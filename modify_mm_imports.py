@@ -30,6 +30,11 @@ EXTRACTED_FUNCTIONS = {
     'bids_2_nrg': 'utils.conversion_utils',
     'dict_to_dataframe': 'utils.conversion_utils',
     'to_nibabel': 'utils.conversion_utils',
+    # Phase 4 functions
+    'mm_read': 'image_io_module.image_io',
+    'mm_read_to_3d': 'image_io_module.image_io',
+    'image_write_with_thumbnail': 'image_io_module.image_io',
+    'write_bvals_bvecs': 'image_io_module.dwi_io',
 }
 
 def create_import_statements():

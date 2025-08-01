@@ -244,6 +244,53 @@ antspymm/
    - Tests ANTs to nibabel conversion
    - All tests pass ✓
 
+## Phase 4: I/O Functions (COMPLETED)
+
+### Created Module
+```
+antspymm/
+├── image_io_module/
+│   ├── __init__.py
+│   ├── image_io.py
+│   └── dwi_io.py
+```
+
+### Functions Extracted
+
+#### Image I/O (`image_io_module/image_io.py`)
+1. **mm_read(x, standardize_intensity, modality)**
+   - Original location: mm.py:1670-1695
+   - Purpose: Read medical images with optional intensity standardization
+   - Dependencies: os, numpy, ants (conditional)
+
+2. **mm_read_to_3d(x, slice, modality)**
+   - Original location: mm.py:1697-1715
+   - Purpose: Read image and convert to 3D if possible
+   - Dependencies: numpy, ants (conditional)
+
+3. **image_write_with_thumbnail(x, fn, y, thumb)**
+   - Original location: mm.py:1753-1790
+   - Purpose: Write image with optional PNG thumbnail
+   - Dependencies: re, numpy, ants (conditional)
+
+#### DWI I/O (`image_io_module/dwi_io.py`)
+1. **write_bvals_bvecs(bvals, bvecs, prefix)**
+   - Original location: mm.py:7562-7592
+   - Purpose: Write FSL FDT bvals and bvecs files
+   - Dependencies: numpy
+
+### Validation Process
+1. **test_io_functions.py**: Created comprehensive tests
+   - Tests error handling for invalid inputs
+   - Tests file creation for DWI files
+   - Tests NaN handling in bvecs
+   - All tests pass ✓
+
+### Implementation Notes
+- Module renamed from 'io' to 'image_io_module' to avoid conflict with Python's built-in io module
+- All functions check for ants availability before using it
+- Error checking happens before import checks to maintain original behavior
+
 ## Notes
 
 1. The `ants` dependency in `get_antsimage_keys` is handled with conditional import
@@ -252,3 +299,4 @@ antspymm/
 4. The DATA_PATH global variable remains in mm.py for now
 5. Phase 2 adds 3 filesystem-related functions that are safe to extract
 6. Phase 3 adds 5 data conversion functions with proper error handling for missing packages
+7. Phase 4 adds 4 I/O functions organized into image and DWI-specific modules
