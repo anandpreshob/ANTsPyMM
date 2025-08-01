@@ -35,6 +35,14 @@ from .filesystem_utils import (
     clean_tmp_directory
 )
 
+from .conversion_utils import (
+    get_valid_modalities,
+    nrg_2_bids,
+    bids_2_nrg,
+    dict_to_dataframe,
+    to_nibabel
+)
+
 __all__ = [
     # String utilities
     'nrg_filename_to_subjectvisit',
@@ -54,5 +62,11 @@ __all__ = [
     # Filesystem utilities
     'validate_nrg_file_format',
     'find_most_recent_file',
-    'clean_tmp_directory'
+    'clean_tmp_directory',
+    # Conversion utilities
+    'get_valid_modalities',
+    'nrg_2_bids',
+    'bids_2_nrg',
+    'dict_to_dataframe',
+    'to_nibabel'
 ]

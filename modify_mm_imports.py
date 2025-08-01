@@ -24,6 +24,12 @@ EXTRACTED_FUNCTIONS = {
     'validate_nrg_file_format': 'utils.filesystem_utils',
     'find_most_recent_file': 'utils.filesystem_utils',
     'clean_tmp_directory': 'utils.filesystem_utils',
+    # Phase 3 functions
+    'get_valid_modalities': 'utils.conversion_utils',
+    'nrg_2_bids': 'utils.conversion_utils',
+    'bids_2_nrg': 'utils.conversion_utils',
+    'dict_to_dataframe': 'utils.conversion_utils',
+    'to_nibabel': 'utils.conversion_utils',
 }
 
 def create_import_statements():

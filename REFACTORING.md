@@ -198,6 +198,52 @@ antspymm/
 - [ ] Run full test suite with modified mm.py
 - [ ] Update package __init__.py if needed
 
+## Phase 3: Data Conversion Functions (COMPLETED)
+
+### Created Module
+```
+antspymm/
+├── utils/
+│   ├── conversion_utils.py
+```
+
+### Functions Extracted
+
+#### Conversion Utilities (`utils/conversion_utils.py`)
+1. **get_valid_modalities(long, asString, qc)**
+   - Original location: mm.py:624-646
+   - Purpose: Return valid modality identifiers for NRG format
+   - Dependencies: None
+
+2. **nrg_2_bids(nrg_filename)**
+   - Original location: mm.py:989-1047
+   - Purpose: Convert NRG filename to BIDS path/filename
+   - Dependencies: os, get_valid_modalities
+
+3. **bids_2_nrg(bids_filename, project_name, date, nrg_modality)**
+   - Original location: mm.py:1050-1091
+   - Purpose: Convert BIDS filename to NRG path/filename
+   - Dependencies: os, get_valid_modalities
+
+4. **dict_to_dataframe(data_dict, convert_lists, convert_arrays, convert_images, verbose)**
+   - Original location: mm.py:414-465
+   - Purpose: Convert dictionary to pandas DataFrame
+   - Dependencies: pandas, numpy, ants (conditional)
+
+5. **to_nibabel(img)**
+   - Original location: mm.py:375-387
+   - Purpose: Convert ANTs image to nibabel format
+   - Dependencies: nibabel (conditional), ants (conditional), ants_to_nibabel_affine
+
+### Validation Process
+1. **test_conversion_utils.py**: Created comprehensive tests
+   - Tests modality validation with various options
+   - Tests NRG to BIDS conversions
+   - Tests BIDS to NRG conversions
+   - Tests dictionary to DataFrame conversion
+   - Tests ANTs to nibabel conversion
+   - All tests pass ✓
+
 ## Notes
 
 1. The `ants` dependency in `get_antsimage_keys` is handled with conditional import
@@ -205,3 +251,4 @@ antspymm/
 3. Function order in modules matches logical grouping, not original file order
 4. The DATA_PATH global variable remains in mm.py for now
 5. Phase 2 adds 3 filesystem-related functions that are safe to extract
+6. Phase 3 adds 5 data conversion functions with proper error handling for missing packages

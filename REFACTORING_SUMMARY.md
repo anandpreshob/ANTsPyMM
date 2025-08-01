@@ -22,10 +22,11 @@ antspymm/
 │   ├── data_utils.py        # 4 data structure functions
 │   ├── transform_utils.py   # 1 transform function
 │   ├── version_utils.py     # 1 version function
-│   └── filesystem_utils.py  # 3 filesystem functions (Phase 2)
+│   ├── filesystem_utils.py  # 3 filesystem functions (Phase 2)
+│   └── conversion_utils.py  # 5 conversion functions (Phase 3)
 ```
 
-### 4. Functions Successfully Extracted (14 total)
+### 4. Functions Successfully Extracted (19 total)
 
 #### Phase 1 (11 functions):
 - String utilities: 5 functions
@@ -37,6 +38,13 @@ antspymm/
 - `validate_nrg_file_format()` - NRG format validation
 - `find_most_recent_file()` - Find newest file from list
 - `clean_tmp_directory()` - Clean temporary files
+
+#### Phase 3 (5 functions):
+- `get_valid_modalities()` - Return valid modality identifiers
+- `nrg_2_bids()` - Convert NRG to BIDS format
+- `bids_2_nrg()` - Convert BIDS to NRG format
+- `dict_to_dataframe()` - Convert dictionary to DataFrame
+- `to_nibabel()` - Convert ANTs image to nibabel
 
 All functions have been:
 - Extracted with exact original code
