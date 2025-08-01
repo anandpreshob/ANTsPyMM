@@ -152,10 +152,45 @@ Target functions:
   - Quality control functions
   - Statistical functions
 
+## Phase 2: File System Utilities (COMPLETED)
+
+### Created Module
+```
+antspymm/
+├── utils/
+│   ├── filesystem_utils.py
+```
+
+### Functions Extracted
+
+#### Filesystem Utilities (`utils/filesystem_utils.py`)
+1. **validate_nrg_file_format(path, separator)**
+   - Original location: mm.py:188-286
+   - Purpose: Validate NRG file format compliance
+   - Dependencies: os, re, warnings
+
+2. **find_most_recent_file(file_list)**
+   - Original location: mm.py:12407-12426
+   - Purpose: Find most recently modified file from list
+   - Dependencies: os
+
+3. **clean_tmp_directory(age_hours, use_sudo, extensions, log_file_path)**
+   - Original location: mm.py:468-518
+   - Purpose: Clean temporary files based on age and extension
+   - Dependencies: os, subprocess, datetime
+
+### Validation Process
+1. **test_filesystem_utils.py**: Created comprehensive tests
+   - Tests NRG path validation with various cases
+   - Tests file finding with temporary files
+   - Tests clean function with safe parameters
+   - All tests pass ✓
+
 ## Verification Checklist
 
 - [x] Created backup of original mm.py
-- [x] Extracted pure utility functions
+- [x] Extracted pure utility functions (Phase 1)
+- [x] Extracted filesystem utilities (Phase 2)
 - [x] Created test suite for extracted functions
 - [x] All tests pass
 - [x] Documentation created
@@ -169,3 +204,4 @@ Target functions:
 2. All original comments and docstrings are preserved
 3. Function order in modules matches logical grouping, not original file order
 4. The DATA_PATH global variable remains in mm.py for now
+5. Phase 2 adds 3 filesystem-related functions that are safe to extract

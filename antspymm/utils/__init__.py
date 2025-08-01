@@ -29,6 +29,12 @@ from .version_utils import (
     version
 )
 
+from .filesystem_utils import (
+    validate_nrg_file_format,
+    find_most_recent_file,
+    clean_tmp_directory
+)
+
 __all__ = [
     # String utilities
     'nrg_filename_to_subjectvisit',
@@ -44,5 +50,9 @@ __all__ = [
     # Transform utilities
     'ants_to_nibabel_affine',
     # Version utilities
-    'version'
+    'version',
+    # Filesystem utilities
+    'validate_nrg_file_format',
+    'find_most_recent_file',
+    'clean_tmp_directory'
 ]

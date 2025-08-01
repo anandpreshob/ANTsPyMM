@@ -21,10 +21,23 @@ antspymm/
 │   ├── string_utils.py      # 5 string manipulation functions
 │   ├── data_utils.py        # 4 data structure functions
 │   ├── transform_utils.py   # 1 transform function
-│   └── version_utils.py     # 1 version function
+│   ├── version_utils.py     # 1 version function
+│   └── filesystem_utils.py  # 3 filesystem functions (Phase 2)
 ```
 
-### 4. Functions Successfully Extracted (11 total)
+### 4. Functions Successfully Extracted (14 total)
+
+#### Phase 1 (11 functions):
+- String utilities: 5 functions
+- Data utilities: 4 functions
+- Transform utilities: 1 function
+- Version utilities: 1 function
+
+#### Phase 2 (3 functions):
+- `validate_nrg_file_format()` - NRG format validation
+- `find_most_recent_file()` - Find newest file from list
+- `clean_tmp_directory()` - Clean temporary files
+
 All functions have been:
 - Extracted with exact original code
 - Tested to ensure identical behavior

@@ -8,6 +8,7 @@ import re
 
 # Functions that have been extracted to utils modules
 EXTRACTED_FUNCTIONS = {
+    # Phase 1 functions
     'nrg_filename_to_subjectvisit': 'utils.string_utils',
     'parse_nrg_filename': 'utils.string_utils',
     'validate_filename': 'utils.string_utils',
@@ -19,6 +20,10 @@ EXTRACTED_FUNCTIONS = {
     'convert_np_in_dict': 'utils.data_utils',
     'ants_to_nibabel_affine': 'utils.transform_utils',
     'version': 'utils.version_utils',
+    # Phase 2 functions
+    'validate_nrg_file_format': 'utils.filesystem_utils',
+    'find_most_recent_file': 'utils.filesystem_utils',
+    'clean_tmp_directory': 'utils.filesystem_utils',
 }
 
 def create_import_statements():
