@@ -22,6 +22,35 @@ except ImportError:
 from .transform_utils import ants_to_nibabel_affine
 
 
+def filter_columns_by_nan_percentage(df, max_nan_percentage=50.0):
+    """
+    Filter columns in a DataFrame based on a threshold for the percentage of NaN values.
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        The input DataFrame from which columns are to be filtered.
+    max_nan_percentage : float, optional
+        The maximum allowed percentage of NaN values in a column. Columns with a higher
+        percentage of NaN values than this threshold will be removed from the DataFrame.
+        The default is 50.0, which means columns with more than 50% NaN values will be removed.
+    Returns
+    -------
+    pandas.DataFrame
+        A DataFrame with columns filtered based on the NaN values percentage criterion.
+    """
+    if df.empty:
+        return df
+    
+    # Calculate the percentage of NaN values for each column
+    nan_percentage = (df.isnull().sum() / len(df)) * 100
+    
+    # Filter columns where NaN percentage is <= max_nan_percentage
+    columns_to_keep = nan_percentage[nan_percentage <= max_nan_percentage].index
+    
+    # Return the filtered DataFrame
+    return df[columns_to_keep]
+
+
 def get_valid_modalities( long=False, asString=False, qc=False ):
     """
     return a list of valid modality identifiers used in NRG modality designation
