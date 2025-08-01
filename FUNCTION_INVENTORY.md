@@ -129,3 +129,57 @@ Main public API functions that external users call:
 2. Create test cases for these functions
 3. Move to file system utilities (Category 2)
 4. Progress through remaining categories
+
+## Extraction Progress
+
+### Phase 1: Pure Utility Functions (COMPLETED)
+- [x] nrg_filename_to_subjectvisit - antspymm/utils/string_utils.py
+- [x] parse_nrg_filename - antspymm/utils/string_utils.py
+- [x] validate_filename - antspymm/utils/string_utils.py
+- [x] validate_modality - antspymm/utils/string_utils.py
+- [x] nrg_format_path - antspymm/utils/string_utils.py
+- [x] filter_columns_by_nan_percentage - antspymm/utils/data_utils.py
+- [x] dict_to_dataframe - antspymm/utils/data_utils.py
+- [x] get_valid_modalities - antspymm/utils/data_utils.py
+- [x] ants_matrix_to_rotation - antspymm/utils/transform_utils.py
+- [x] closest_orthogonal_matrix - antspymm/utils/transform_utils.py
+- [x] get_antsregistration_iterations - antspymm/utils/transform_utils.py
+
+### Phase 2: Filesystem Utilities (COMPLETED)
+- [x] validate_nrg_file_format - antspymm/utils/filesystem_utils.py
+- [x] find_most_recent_file - antspymm/utils/filesystem_utils.py
+- [x] clean_tmp_directory - antspymm/utils/filesystem_utils.py
+
+### Phase 3: Data Conversion Functions (COMPLETED)
+- [x] nrg_2_bids - antspymm/utils/conversion_utils.py
+- [x] bids_2_nrg - antspymm/utils/conversion_utils.py
+- [x] dict_to_dataframe - antspymm/utils/conversion_utils.py
+- [x] to_nibabel - antspymm/utils/conversion_utils.py
+- [x] get_valid_modalities - antspymm/utils/conversion_utils.py
+
+### Phase 4: I/O Functions (COMPLETED)
+- [x] mm_read - antspymm/image_io_module/image_io.py
+- [x] mm_read_to_3d - antspymm/image_io_module/image_io.py
+- [x] image_write_with_thumbnail - antspymm/image_io_module/image_io.py
+- [x] write_bvals_bvecs - antspymm/image_io_module/dwi_io.py
+
+### Phase 5: Processing Functions (COMPLETED)
+- [x] tsnr - antspymm/processing/qc.py
+- [x] dvars - antspymm/processing/qc.py
+- [x] mask_snr - antspymm/processing/qc.py
+- [x] slice_snr - antspymm/processing/qc.py
+- [x] foreground_background_snr - antspymm/processing/qc.py
+- [x] quantile_snr - antspymm/processing/qc.py
+- [x] bvec_reorientation - antspymm/processing/dti.py
+- [x] get_dti - antspymm/processing/dti.py
+- [x] deformation_gradient_optimized - antspymm/processing/transforms.py
+- [x] segment_timeseries_by_bvalue - antspymm/processing/segmentation.py
+- [x] segment_timeseries_by_meanvalue - antspymm/processing/segmentation.py
+
+### Total Functions Extracted: 34
+
+### Next Phase: Core Pipeline Functions
+These are the most complex functions with heavy dependencies:
+- mm() - Main processing pipeline
+- mm_csv() - CSV-based processing
+- mm_nrg() - NRG-based processing
